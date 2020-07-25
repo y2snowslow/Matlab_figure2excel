@@ -7,7 +7,9 @@ function [] = exportFigureData2Excel(fig,varargin)
 %   時系列データかつ2DDataのみ有効
 % 
 %   Input:
-%               fig --- figureHandler 
+%               fig     --- figureHandler 
+%               Name    --- xlsxname ex. 'test' or 'test.xlsx'
+%               
 % 
 
 %check filename
@@ -28,10 +30,10 @@ else
 end
 
 %Make CutData
-FigureNumber =  size(fig.Children,1);
+FigureNumber =  size(fig.Children,1); %Figure上のグラフの数
 
 %initialize
-legendFlag = zeros(round(FigureNumber/2),1);
+legendFlag = zeros(FigureNumber,1);
 XYDataCount = 1;
 
 for i = 1:FigureNumber
